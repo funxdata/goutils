@@ -1,11 +1,9 @@
-package crypto
+package rand
 
 import (
 	crand "crypto/rand"
 	"math/rand"
 	"time"
-
-	"github.com/ckeyer/commons/crypto/uuid"
 )
 
 const (
@@ -19,19 +17,20 @@ func init() {
 }
 
 // RandomString 获取随机字符串
-func RandomString(count int, set ...[]byte) string {
-	var sets []byte
-	var ret = make([]byte, count)
-	if len(set) == 0 {
+func RandomString(count int, sets ...byte) string {
+	if count == 0 {
+		return ""
+	}
+	if len(sets) == 0 {
 		sets = []byte(ALPHANUM)
-		setlen := len(ALPHANUM)
-		for i := 0; i < count; i++ {
-			ret[i] = sets[RandomInt(0, setlen-1)]
-		}
-		return string(ret)
 	}
 
-	return ""
+	var ret = make([]byte, count)
+	setlen := len(ALPHANUM)
+	for i := 0; i < count; i++ {
+		ret[i] = sets[RandomInt(0, setlen-1)]
+	}
+	return string(ret)
 }
 
 // RandomBytes 获取随机字符
@@ -47,8 +46,4 @@ func RandomInt(start, end int) int {
 
 func RandomInt64(start, end int64) int64 {
 	return rand.Int63n(end-start+1) + start
-}
-
-func RandomUUID() string {
-	return uuid.NewV4().String()
 }

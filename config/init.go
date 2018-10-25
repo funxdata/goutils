@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	log "github.com/ckeyer/logrus"
+	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
 

@@ -9,7 +9,7 @@ import (
 	"encoding/pem"
 	"time"
 
-	log "github.com/ckeyer/logrus"
+	log "github.com/sirupsen/logrus"
 	"golang.org/x/crypto/ssh"
 )
 
