@@ -46,6 +46,7 @@ func NewMdbWithURL(url string) (*mgo.Database, error) {
 		return nil, fmt.Errorf("invalid database name.")
 	}
 
+	ss.SetPoolLimit(100)
 	return ss.DB(dbName), nil
 }
 
@@ -204,6 +205,18 @@ func PageAndCount(db *mgo.Database, collection string, query bson.M, offset int,
 			return err
 		}
 		return c.Find(query).Skip(offset).Limit(limit).All(result)
+	})
+	return total, err
+}
+
+//sort
+func PageAndCountSort(db *mgo.Database, collection string, query bson.M, offset int, limit int, result interface{}, sortBy ...string) (total int, err error) {
+	err = WithC(db, collection, func(c *mgo.Collection) error {
+		total, err = c.Find(query).Count()
+		if err != nil {
+			return err
+		}
+		return c.Find(query).Sort(sortBy...).Skip(offset).Limit(limit).All(result)
 	})
 	return total, err
 }
