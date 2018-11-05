@@ -7,9 +7,8 @@ import (
 	"syscall"
 )
 
-var once bool
-
-func WaitForExit(twice bool, closeCh ...chan int) {
+func WaitExit(twice bool, chExit chan struct{}, f ...func()) {
+	var once bool
 	sigChan := make(chan os.Signal, 1)
 	signal.Notify(
 		sigChan,
@@ -23,17 +22,22 @@ func WaitForExit(twice bool, closeCh ...chan int) {
 		case syscall.SIGINT, syscall.SIGTERM:
 			if twice && !once {
 				once = true
-				for _, v := range closeCh {
-					select {
-					case <-v:
-					default:
-						close(v)
-					}
-				}
 				fmt.Println("Send ^C to force exit.")
 			} else {
+				closeCh(chExit)
+				for _, v := range f {
+					v()
+				}
 				os.Exit(0)
 			}
 		}
+	}
+}
+
+func closeCh(ch chan struct{}) {
+	select {
+	case <-ch:
+	default:
+		close(ch)
 	}
 }
