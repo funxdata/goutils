@@ -8,7 +8,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/ckeyer/commons/version"
+	"github.com/funxdata/commons/version"
 )
 
 const debugInfo = `
