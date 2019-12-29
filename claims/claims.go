@@ -1,5 +1,5 @@
-// 用户认证使用的 jwt 相关域
 package claims
+// 用户认证使用的 jwt 相关域
 
 import (
 	"crypto/subtle"
@@ -17,7 +17,7 @@ type Claim struct {
 	ExpiresAt    int64  `json:"exp,omitempty"`
 	ID           uint   `json:"jti,omitempty"`
 	CompanyID    uint   `json:"company_id,omitempty"`
-	Namespace string    `json:"namespace,omitempty"`
+	Namespace    string `json:"namespace,omitempty"`
 	IssuedAt     int64  `json:"iat,omitempty"`
 	Issuer       string `json:"iss,omitempty"`
 	NotBefore    int64  `json:"nbf,omitempty"`
