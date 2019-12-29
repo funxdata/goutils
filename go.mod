@@ -4,6 +4,7 @@ go 1.13
 
 require (
 	github.com/Masterminds/semver v1.5.0
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/garyburd/redigo v1.6.0 // indirect
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/onsi/ginkgo v1.11.0 // indirect
