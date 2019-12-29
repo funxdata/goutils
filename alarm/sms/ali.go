@@ -3,9 +3,8 @@ package sms
 import (
 	"net/url"
 
-	"github.com/ckeyer/commons/crypto/uuid"
-
-	"github.com/ckeyer/commons/httpcli"
+	"github.com/funxdata/commons/uuid"
+	"github.com/funxdata/commons/httpcli"
 )
 
 const (
