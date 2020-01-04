@@ -8,7 +8,7 @@ import (
 func TestSendEmail(t *testing.T) {
 	return
 	a := Account{}
-	err := SendMail(a, "邮件发送测试", "this is a test email", "me@ckeyer.com", "chuanjian@staff.sina.com.cn")
+	err := SendMail(a, "邮件发送测试", "this is a test email", "me@ckeyer.com", )
 	if err != nil {
 		t.Error(err.Error())
 	}

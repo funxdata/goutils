@@ -8,7 +8,7 @@ import (
 func TestDBWrapper(t *testing.T) {
 	return
 	sql := "SELECT * FROM t LIMIT ?"
-	dbWrapper := ConnectMysqlDB("192.168.2.230", 3308, "test", "ckeyer", "wangcj")
+	dbWrapper := ConnectMysqlDB("192.168.2.230", 3308, "test", "ckeyer", "123456hebei")
 	res := dbWrapper.Query(sql, 1)
 	if res.Cols[0] == "id" {
 		t.Fail()

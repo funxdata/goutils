@@ -13,9 +13,9 @@ const (
 	timefmt = "2006-01-02T15:04:05Z-0700"
 )
 
-// -X github.com/ckeyer/commons/version.version=$(VERSION)
-// -X github.com/ckeyer/commons/version.gitCommit=$(GIT_COMMIT)
-// -X github.com/ckeyer/commons/version.buildAt=${date "+%Y-%m-%dT%H:%M:%SZ%z"}
+// -X github.com/funxdata/commons/version.version=$(VERSION)
+// -X github.com/funxdata/commons/version.gitCommit=$(GIT_COMMIT)
+// -X github.com/funxdata/commons/version.buildAt=${date "+%Y-%m-%dT%H:%M:%SZ%z"}
 var (
 	version, gitCommit string
 	buildAt            string
