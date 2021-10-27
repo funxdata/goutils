@@ -28,3 +28,6 @@ _testmain.go
 *.test
 *.prof
 tests
+# 一些编辑器设置
+*.ssh
+*.idea
