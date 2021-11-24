@@ -1,8 +1,34 @@
-package format
+/*
+ * @Author: dowell87
+ * @Date: 2021-11-21 18:35:06
+ * @Descripttion: 字符串格式化
+ * @LastEditTime: 2021-11-21 18:38:24
+ */
+package character
 
 import (
+	"fmt"
 	"strings"
 )
+
+const (
+	cRedBegin   = "\033[31m"
+	cGreenBegin = "\033[32m"
+	cBrownBegin = "\033[33m"
+	cEnd        = "\033[0m"
+)
+
+func ErrorString(format string, args ...interface{}) string {
+	return cRedBegin + fmt.Sprintf(format, args...) + cEnd
+}
+
+func SuccessString(format string, args ...interface{}) string {
+	return cGreenBegin + fmt.Sprintf(format, args...) + cEnd
+}
+
+func WarnString(format string, args ...interface{}) string {
+	return cBrownBegin + fmt.Sprintf(format, args...) + cEnd
+}
 
 func FormatToCamelWithPrefix(pre, src string) string {
 	var str string = pre
