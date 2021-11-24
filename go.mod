@@ -1,4 +1,4 @@
-module github.com/funxdata/commons
+module github.com/funxdata/goutils
 
 go 1.16
 

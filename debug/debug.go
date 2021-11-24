@@ -1,3 +1,9 @@
+/*
+ * @Author: dowell87
+ * @Date: 2021-10-27 16:00:11
+ * @Descripttion:
+ * @LastEditTime: 2021-11-24 11:58:36
+ */
 // +build !windows
 
 package debug
@@ -10,7 +16,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/funxdata/commons/version"
+	"github.com/funxdata/goutils/version"
 )
 
 const debugInfo = `
