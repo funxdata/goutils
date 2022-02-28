@@ -1,6 +1,7 @@
 package rand
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -22,4 +23,9 @@ func TestRandString(t *testing.T) {
 	for i := 0; i < 10; i++ {
 		t.Log(RandomString(20))
 	}
+}
+
+func TestRandomCode(t *testing.T) {
+	res := RandomCode(6)
+	fmt.Println(res)
 }
