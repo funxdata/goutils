@@ -3,6 +3,7 @@ package rand
 import (
 	crand "crypto/rand"
 	"math/rand"
+	"strconv"
 	"time"
 )
 
@@ -46,4 +47,11 @@ func RandomInt(start, end int) int {
 
 func RandomInt64(start, end int64) int64 {
 	return rand.Int63n(end-start+1) + start
+}
+
+func RandomCode(sum int) (code string) {
+	for i := 0; i < sum; i++ {
+		code = code + strconv.Itoa(rand.Intn(9))
+	}
+	return code
 }
